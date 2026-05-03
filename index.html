@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anniversary Premium</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="bg"><div class="orb" style="width:260px;height:260px;background:#c77dff;top:8%;left:8%"></div><div class="orb" style="width:320px;height:320px;background:#7b2cbf;top:58%;left:70%;animation-delay:2s"></div><div class="orb" style="width:180px;height:180px;background:#ffd6ff;top:28%;left:76%;animation-delay:4s"></div></div>
+<canvas id="codeRain" aria-hidden="true"></canvas>
+<audio id="bgMusic" preload="auto" loop playsinline><source src="music2.mp3" type="audio/mpeg"></audio>
+<main class="main">
+<section class="glass welcome-page reveal story-page active" id="pageWelcome">
+<div class="intro-card"><h1>Our Love Story ❤️</h1><p>A premium anniversary page made for memories, gentle feelings, and a celebration of your journey together.</p><button class="btn" onclick="startExperience()">Enter Our Story ✨</button></div>
+</section>
+<section class="glass hero reveal story-page" id="pageHero">
+<div class="tag">Anniversary Premium 💞</div>
+<h1>Happy Anniversary ❤️</h1><h2>For My Beloved One</h2>
+<div class="hero-grid">
+<div class="photo-wrap" onmousemove="tiltCard(event)" onmouseleave="resetTilt()"><img id="tiltPhoto" class="hero-photo" src="images/photo1.jpg" alt=""></div>
+<div class="hero-text">Loving you has made ordinary days feel magical and special days unforgettable. This page is for our memories, our smiles, and the beautiful calm that love brings into life. ✨</div>
+</div>
+<div class="days-box">We have been together for <span id="daysTogether">0</span> days, and every one of them means the world to me. 💖</div>
+<div class="type-box"><span id="typewriter"></span><span class="cursor">|</span></div>
+<div class="page-actions"><button class="mini-btn" onclick="nextPage()">Next ✨</button></div>
+</section>
+<section class="glass section reveal timeline story-page" id="pageTimeline"><h3>Our Story Timeline 🌹</h3><div class="timeline-grid"><div class="timeline-item">💫 The day our story began.</div><div class="timeline-item">📸 The memories we never want to lose.</div><div class="timeline-item">💌 The feelings that keep growing.</div></div><div class="page-actions"><button class="mini-btn ghost-btn" onclick="prevPage()">Back</button><button class="mini-btn" onclick="nextPage()">Next ✨</button></div></section>
+<section class="glass section reveal gallery-sec story-page" id="pageGallery"><h3>Our Memories 📸</h3><div class="gallery"><img src="images/photo1.jpg" alt=""><img src="images/photo2.jpg" alt=""><img src="images/photo3.jpg" alt=""><img src="images/photo4.jpg" alt=""><img src="images/photo5.jpg" alt=""><img src="images/photo6.jpg" alt=""></div><div class="page-actions"><button class="mini-btn ghost-btn" onclick="prevPage()">Back</button><button class="mini-btn" onclick="nextPage()">Next ✨</button></div></section>
+<section class="glass section reveal letter-sec story-page" id="pageLetter"><h3>Love Letter 💌</h3><div style="text-align:center"><button class="mini-btn" onclick="openLetter()">Open Letter</button></div><div class="letter-paper" id="letterPaper">Thank you for every smile, every comfort, and every beautiful memory we have made together. Being loved by you is one of the sweetest blessings in my life, and my heart will always treasure you deeply. ❤️</div><div class="page-actions"><button class="mini-btn ghost-btn" onclick="prevPage()">Back</button><button class="mini-btn" onclick="nextPage()">Next ✨</button></div></section>
+<section class="glass section reveal celebrate-sec story-page" id="pageCelebrate"><h3>Celebrate Our Love 🎉</h3><p>Today is not just another date. It is a reminder that real love can make life softer, brighter, and more meaningful.</p><button class="mini-btn" onclick="dropConfetti()">Celebrate Now 💖</button><div class="page-actions"><button class="mini-btn ghost-btn" onclick="prevPage()">Back</button><button class="mini-btn" onclick="showPage(0)">Replay Story</button></div></section>
+</main>
+<div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" onclick="closePhotoViewer()" aria-label="Close photo">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button" onclick="changePhoto(-1)" aria-label="Previous photo">‹</button>
+  <div class="lightbox-frame">
+    <img id="lightboxImage" src="" alt="Selected memory photo">
+    <div class="lightbox-count" id="lightboxCount">1 / 6</div>
+  </div>
+  <button class="lightbox-nav lightbox-next" type="button" onclick="changePhoto(1)" aria-label="Next photo">›</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
