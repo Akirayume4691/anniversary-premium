@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anniversary Premium</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="romantic-atmosphere">
+  <span>♡</span><span>✦</span><span>♡</span><span>✧</span><span>♡</span>
+</div>
+  <canvas id="codeRain" aria-hidden="true"></canvas>
+  <div class="cinema-overlay" aria-hidden="true"></div>
+  <div class="premium-lights" aria-hidden="true">
+    <span class="light l1"></span>
+    <span class="light l2"></span>
+    <span class="light l3"></span>
+  </div>
+
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="music2.mp3" type="audio/mpeg" />
+  </audio>
+
+<div class="soft-memory-particles" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<div class="depth-light" id="depthLight" aria-hidden="true"></div>
+
+
+<div id="premiumDepthLight" aria-hidden="true"></div>
+<div id="softParticleLayer" aria-hidden="true"></div>
+
+<main class="main">
+    <section class="page active" id="welcomePage">
+      <div class="scene-card intro-card">
+        <div class="scan-line"></div>
+        <p class="eyebrow">Anniversary Premium • Cinematic Gift</p>
+        <div class="gift-core">🎁</div>
+        <h1>Unlock Our Anniversary<br><span>Love Story</span></h1>
+        <p class="lead">A romantic premium journey with music, soft glow, memories, and a final love message.</p>
+        <button class="btn" onpointerdown="prepareMusic()" onclick="startExperience()">Start The Experience ✨</button>
+        <p class="tap-hint">Best opened with phone • Swipe to explore</p>
+      </div>
+    </section>
+
+    <section class="page" id="heroPage">
+      <div class="scene-card hero reveal">
+        <p class="eyebrow">Scene 01 • Love Opening</p>
+        <h1>Happy Anniversary,<br><span>My Beloved</span> 🎂</h1>
+        <div class="hero-stage">
+          <div class="hero-copy">
+            <p>This is not just an anniversary page. It is a romantic digital gift made with our photos, music, memories, and one emotional story.</p>
+            <div class="type-box">
+              <span id="typewriter"></span><span class="cursor">|</span>
+            </div>
+          </div>
+          <div class="premium-photo-frame" id="heroTilt">
+            <img src="images/photo1.jpg" alt="Anniversary memory" />
+            <span class="frame-glow"></span>
+          </div>
+        </div>
+        <div class="active-memory-caption" id="activeMemoryCaption">Memory 01 • Special Anniversary Moment</div>
+        <div class="page-actions">
+          <button class="mini-btn ghost" onclick="prevPage()">Back</button>
+          <button class="mini-btn" onclick="nextPage()">Continue Story →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="timelinePage">
+      <div class="scene-card reveal">
+        <p class="eyebrow">Scene 02 • Memory Path</p>
+        <h2>Small moments, big feelings</h2>
+        <div class="timeline-cinema">
+          <button class="timeline-card story-node" onclick="burstParty(12)">
+            <span>01</span>
+            <strong>The Promise</strong>
+            <p>For our bond, our peace, and the love that keeps growing.</p>
+          </button>
+          <button class="timeline-card story-node" onclick="burstParty(12)">
+            <span>02</span>
+            <strong>The Memory</strong>
+            <p>Photos kept like tiny scenes from our love story.</p>
+          </button>
+          <button class="timeline-card story-node" onclick="burstParty(12)">
+            <span>03</span>
+            <strong>The Letter</strong>
+            <p>A hidden letter waiting to be opened with love.</p>
+          </button>
+        </div>
+        <div class="page-actions">
+          <button class="mini-btn ghost" onclick="prevPage()">Back</button>
+          <button class="mini-btn" onclick="nextPage()">Open Gallery →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="galleryPage">
+      <div class="scene-card reveal gallery-sec">
+        <p class="eyebrow">Scene 03 • Our Memories</p>
+        <h2>Move our memories with your hand</h2>
+        <p class="sub">Swipe left or right. Tap the focused photo to open full view.</p>
+
+        
+
+<div class="gallery-premium-aura" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p class="gallery-hint">Swipe or tap side memories • Tap center photo to open</p>
+        <div class="orbit-gallery premium-orbit">
+  <button class="gallery-control prev" onclick="moveGallery(-1)">‹</button>
+
+  <div class="orbit-track" id="orbitTrack">
+    <button class="orbit-card" data-index="0"><img src="images/photo1.jpg"><span>Memory 01</span></button>
+    <button class="orbit-card" data-index="1"><img src="images/photo2.jpg"><span>Memory 02</span></button>
+    <button class="orbit-card" data-index="2"><img src="images/photo3.jpg"><span>Memory 03</span></button>
+    <button class="orbit-card" data-index="3"><img src="images/photo4.jpg"><span>Memory 04</span></button>
+    <button class="orbit-card" data-index="4"><img src="images/photo5.jpg"><span>Memory 05</span></button>
+    <button class="orbit-card" data-index="5"><img src="images/photo6.jpg"><span>Memory 06</span></button>
+  </div>
+
+  <button class="gallery-control next" onclick="moveGallery(1)">›</button>
+</div>
+
+<div class="active-memory-caption" id="activeMemoryCaption">Memory 01 • Romantic Moment</div>
+<div class="page-actions gallery-page-actions">
+  <button class="mini-btn ghost" onclick="prevPage()">Back</button>
+  <button class="mini-btn" onclick="nextPage()">Open Letter →</button>
+</div>
+
+</section>
+
+
+
+    <section class="page" id="letterPage">
+      <div class="scene-card reveal letter-sec">
+        <p class="eyebrow">Scene 04 • Hidden Letter</p>
+        <h2>A love letter for you 💌</h2>
+        <button class="mini-btn" onclick="openLetter()">Open The Letter</button>
+        <div class="letter-paper" id="letterPaper">
+          <div class="letter-shine"></div>
+          <p>Happy anniversary to someone truly precious. I hope our story keeps growing gently, honestly, and beautifully through every season.</p>
+          <p>May this anniversary become one beautiful memory we can keep forever. 💕</p>
+        </div>
+        <div class="page-actions">
+          <button class="mini-btn ghost" onclick="prevPage()">Back</button>
+          <button class="mini-btn" onclick="nextPage()">Final Scene →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="finalPage">
+      <div class="scene-card reveal final-sec">
+        <p class="eyebrow">Final Scene • Love Promise</p>
+        <div class="final-core">💖</div>
+        <h2>One last anniversary wish</h2>
+        <p>No matter how many anniversarys pass, I will always wish for your peace, your success, and your happiest future.</p>
+        <button class="btn" onclick="dropConfetti()">Cherish This Moment 🎉</button>
+        <div class="page-actions">
+          <button class="mini-btn ghost" onclick="prevPage()">Back</button>
+          <button class="mini-btn" onclick="replayStory()">Replay Story ✨</button>
+        </div>
+      </div>
+    </section>
+  </main>
+<div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-nav lightbox-prev" onclick="changeLightboxPhoto(-1)">‹</button>
+    <img id="lightboxImage" src="" alt="Opened anniversary memory" />
+    <p id="lightboxCaption"></p>
+    <button class="lightbox-nav lightbox-next" onclick="changeLightboxPhoto(1)">›</button>
+  </div>
+
+  <div class="scene-transition" id="sceneTransition" aria-hidden="true"></div>
+</div>
+
+
+<div id="audioMuteLayer">
+  <button id="audioMuteButton" type="button" aria-label="Toggle music" onclick="window.__togglePremiumMusic && window.__togglePremiumMusic(event)">
+    <span id="audioMuteIcon">♫</span>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
